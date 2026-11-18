@@ -93,6 +93,7 @@ window.ARCHIVE = {
   links: [
     { label: "YouTube", url: "https://www.youtube.com/c/CharmerWay" },
     { label: "X / Twitter", url: "https://x.com/charmerway" },
+    { label: "Instagram", url: "https://www.instagram.com/charmerway/" },
     { label: "School 33 Art Center studios", url: "https://school33.org/index.cfm?page=studios" },
     { label: "Old site, Nov 2020 (Wayback Machine)", url: "https://web.archive.org/web/20201101035630/http://charmerway.com/" }
   ]
