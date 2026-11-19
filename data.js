@@ -115,10 +115,15 @@ window.ARCHIVE = {
   // Add images to ./media/ and list them here: { src: "media/file.jpg", caption: "…", year: "2018" }
   gallery: [],
 
-  // Logos. `symbol: "mark"` uses the redrawn C mark built into the page;
-  // for original files put them in ./media/ and use { name, src, note }.
+  // Logos: put files in ./media/ and use { name, src, note }. Add `light: true`
+  // for a transparent image that needs a white tile behind it.
   logos: [
-    { name: "CharmerWay", symbol: "mark", note: "C mark, redrawn from the YouTube and X profile images" },
+    { name: "CharmerWay", src: "media/charmerway-c-black.png", light: true, note: "The C logo, black" },
+    { name: "CharmerWay", src: "media/charmerway-c-gradient.jpg", note: "The C logo, gradient" },
+    { name: "CharmerWay", src: "media/charmerway-c-blue.jpg", note: "The C logo, blue" },
+    { name: "CharmerWay", src: "media/charmerway-c-navy.jpg", note: "The C logo, navy" },
+    { name: "CharmerWay", src: "media/charmerway-c-purple.jpg", note: "The C logo, purple on black" },
+    { name: "CharmerWay", note: "The C logo, gold on black", todo: true },
     { name: "CStar Records", src: "media/cstar-records-logo-red.jpg", note: "Logo of the music arm (CStar Sound), red version" },
     { name: "CStar Records", src: "media/cstar-records-logo-black.jpg", note: "Logo of the music arm (CStar Sound), black and white version" },
     { name: "Charmers", note: "Original logo file", todo: true },

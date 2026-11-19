@@ -323,24 +323,15 @@
   }
 
   // --- logos ---------------------------------------------------------
-  var SVGNS = "http://www.w3.org/2000/svg";
   var logos = (A.logos || []).map(function (l) {
     var art;
     if (l.src) {
       art = el("img", { src: l.src, alt: (l.name || "") + " logo", loading: "lazy" });
-    } else if (l.symbol) {
-      art = document.createElementNS(SVGNS, "svg");
-      art.setAttribute("class", "logo__svg");
-      art.setAttribute("role", "img");
-      art.setAttribute("aria-label", (l.name || "") + " logo");
-      var use = document.createElementNS(SVGNS, "use");
-      use.setAttribute("href", "#" + l.symbol);
-      art.appendChild(use);
     } else {
       art = el("span", { class: "logo__empty", "aria-hidden": "true", text: "+" });
     }
     return el("li", { class: "logo" + (isTodo(l) ? " is-todo" : "") }, [
-      el("div", { class: "logo__art" }, [art]),
+      el("div", { class: "logo__art" + (l.light ? " logo__art--light" : "") }, [art]),
       el("h3", { class: "logo__name" }, [l.name || "Logo", isTodo(l) ? todoTag() : null]),
       l.note ? el("p", { class: "logo__note", text: l.note }) : null
     ]);
