@@ -40,8 +40,8 @@ lists and reload the page.
   `releases` as `{ title, artist, year, url? }`.
 - `people`: `{ name, role, photo? }`; `photo` is a path like `"media/nico.jpg"`.
 - `gallery`: `{ src, caption, year, alt? }`
-- `logos`: `{ name, src, note }` with `src` a file in `media/`, or
-  `symbol: "mark"` for the C mark drawn into the page.
+- `logos`: `{ name, src, note, light? }` with `src` a file in `media/`. Use
+  `light: true` for a transparent image that needs a white tile.
 - `links`: `{ label, url }`. A link with an empty `url` and `todo: true` shows
   as a placeholder until you fill in the address.
 
@@ -97,8 +97,9 @@ uses system fonts; if the status check fails it says "Status unavailable".
 
 ## Logo
 
-The C mark and the four-point sparkle are redrawn as SVG from the CharmerWay
-YouTube and X profile images. They're defined once at the top of `index.html`
-(`<symbol id="mark">` and `<symbol id="sparkle">`) and reused everywhere,
-including `media/favicon.svg`. If you have the original logo files, replace the
-paths inside those symbols. The mark's colour is `--mark` in `styles.css`.
+The C mark in the top bar, hero and footer is the official CharmerWay C
+(`media/charmerway-c-mark.png`, cropped from the original `C Logo.png`). It's
+applied as a CSS mask (`.cmark` in `styles.css`), so it takes the colour of
+`--mark` in each theme. `media/favicon.svg` embeds the same file. The colour
+versions in the Logos section are the original files resized to 1000px. The
+four-point sparkle in the hero title is a small SVG `<symbol>` in `index.html`.

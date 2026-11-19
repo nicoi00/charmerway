@@ -6,6 +6,7 @@
   <title>CharmerWay Archive</title>
   <meta name="description" content="The full archive of CharmerWay, an artist collective from Baltimore, Maryland, 2017–2022: Charmers, two podcasts, CStar Sound and CStar eSports.">
   <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -16,20 +17,12 @@
   </script>
 </head>
 <body>
-  <!-- Logo symbols, redrawn from the CharmerWay profile images. Swap in originals here if you have them. -->
+  <!-- Sparkle symbol. The C mark itself is media/charmerway-c-mark.png, applied as a CSS mask (see .cmark). -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <!-- Four-point sparkle from the wordmark -->
       <symbol id="sparkle" viewBox="0 0 24 24">
         <path fill="currentColor" d="M12 0C12.9 7.4 16.6 11.1 24 12 16.6 12.9 12.9 16.6 12 24 11.1 16.6 7.4 12.9 0 12 7.4 11.1 11.1 7.4 12 0Z"/>
-      </symbol>
-      <!-- The "C" mark with its two sparkles -->
-      <symbol id="mark" viewBox="0 0 100 100">
-        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M80 15C60 17 36 26 23 43 11 59 15 78 32 83 47 88 66 82 85 71 67 78 49 80 38 74 27 68 27 54 36 42 46 29 63 21 80 15Z"/>
-          <path d="M86 6C86.5 9.6 88.4 11.5 92 12 88.4 12.5 86.5 14.4 86 18 85.5 14.4 83.6 12.5 80 12 83.6 11.5 85.5 9.6 86 6Z"/>
-          <path d="M92 20C92.3 22.2 93.4 23.3 95.5 23.5 93.4 23.8 92.3 24.9 92 27 91.7 24.9 90.6 23.8 88.5 23.5 90.6 23.3 91.7 22.2 92 20Z"/>
-        </g>
       </symbol>
     </defs>
   </svg>
@@ -38,7 +31,7 @@
 
   <header class="topbar">
     <a class="brand" href="#top" aria-label="CharmerWay, back to top">
-      <svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="cmark brand__mark" aria-hidden="true"></span>
       <span class="brand__word" data-field="name"></span>
     </a>
     <nav class="nav" aria-label="Sections">
@@ -79,7 +72,7 @@
           <ul class="now__items" id="now-items"></ul>
         </aside>
       </div>
-      <svg class="hero__mark" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="cmark hero__mark" aria-hidden="true"></span>
     </section>
 
     <section class="section" id="minecraft" aria-labelledby="minecraft-h" hidden>
@@ -148,7 +141,7 @@
 
   <footer class="footer">
     <div class="footer__brand">
-      <svg class="footer__mark" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="cmark footer__mark" aria-hidden="true"></span>
       <p><span data-field="name"></span> · <span data-field="years"></span> · <span data-field="place"></span></p>
     </div>
     <p class="footer__note">An archive in progress. Entries marked <span class="todo-tag">To add</span> are waiting on records.</p>
