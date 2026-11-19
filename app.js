@@ -228,25 +228,27 @@
   });
   fill("projects-list", projects.length ? projects : [emptyNote("Add projects to `projects` in data.js.")]);
 
-  // --- podcast ---------------------------------------------------------
-  (function () {
-    var cstar = (A.projects || []).filter(function (p) { return p.name === "CStar Presents"; })[0];
-    var lede = document.getElementById("podcast-lede");
-    if (lede) {
-      if (cstar && cstar.text) lede.textContent = cstar.text + (cstar.years ? " (" + cstar.years + ")" : "");
-      else lede.remove();
-    }
-  })();
+  // --- podcasts ------------------------------------------------------
+  function projectLede(id, name) {
+    var proj = (A.projects || []).filter(function (p) { return p.name === name; })[0];
+    var lede = document.getElementById(id);
+    if (!lede) return;
+    if (proj && proj.text) lede.textContent = proj.text + (proj.years ? " (" + proj.years + ")" : "");
+    else lede.remove();
+  }
+  projectLede("podcast-lede", "CStar Presents");
+  projectLede("closet-lede", "Charmers Cramped Closet Podcast");
+  projectLede("music-lede", "CStar Sound");
 
-  var episodes = (A.episodes || []).map(function (ep) {
+  function episodeRow(ep) {
     var hasNo = ep.no !== null && ep.no !== undefined && ep.no !== "";
     var headline = ep.title || ep.guest || "Untitled episode";
-    var sub = ep.title && ep.guest ? "with " + ep.guest : "";
+    var sub = ep.sub || (ep.title && ep.guest ? "with " + ep.guest : "");
     var titleNode = ep.url
       ? externalLink(ep.url, headline, "ep__link")
       : el("span", { text: headline });
     return el("li", { class: "ep" + (isTodo(ep) ? " is-todo" : "") + (ep.url ? " has-url" : "") }, [
-      el("span", { class: "ep__no" + (hasNo ? "" : " is-unknown"), title: hasNo ? null : "Episode number not confirmed yet" },
+      el("span", { class: "ep__no" + (hasNo ? "" : " is-unknown"), title: hasNo ? null : "Number not confirmed yet" },
         [hasNo ? String(ep.no).padStart(2, "0") : "—"]),
       el("div", { class: "ep__body" }, [
         el("h3", { class: "ep__title" }, [titleNode, isTodo(ep) ? todoTag() : null]),
@@ -255,8 +257,34 @@
       el("span", { class: "ep__date", text: ep.date || "" }),
       ep.url ? el("span", { class: "ep__watch", "aria-hidden": "true", text: "▶" }) : null
     ]);
+  }
+  function episodeList(id, list, field) {
+    var rows = (list || []).map(episodeRow);
+    fill(id, rows.length ? rows : [el("li", {}, [emptyNote("Add episodes to `" + field + "` in data.js.")])]);
+  }
+  episodeList("episode-list", A.episodes, "episodes");
+  episodeList("closet-list", A.closetEpisodes, "closetEpisodes");
+
+  // --- music (CStar Sound) --------------------------------------------
+  var music = A.music || {};
+  var artists = (music.artists || []).map(function (a) {
+    var initial = isTodo(a) ? "+" : (a.name || "?").replace(/^CStar\s+/, "").trim().charAt(0).toUpperCase();
+    var nameNode = a.url ? externalLink(a.url, a.name, "person__link") : (a.name || "Unnamed");
+    return el("li", { class: "person" + (isTodo(a) ? " is-todo" : "") }, [
+      a.photo
+        ? el("img", { class: "person__avatar", src: a.photo, alt: "", loading: "lazy" })
+        : el("span", { class: "person__avatar", "aria-hidden": "true", text: initial }),
+      el("div", {}, [
+        el("h3", { class: "person__name" }, [nameNode, isTodo(a) ? todoTag() : null]),
+        el("p", { class: "person__role", text: a.role || "CStar Sound artist" })
+      ])
+    ]);
   });
-  fill("episode-list", episodes.length ? episodes : [el("li", {}, [emptyNote("Add episodes to `episodes` in data.js.")])]);
+  fill("artist-list", artists.length ? artists : [el("li", {}, [emptyNote("Add artists to `music.artists` in data.js.")])]);
+  var releases = (music.releases || []).map(function (r) {
+    return episodeRow({ no: null, title: r.title, sub: r.artist || "", date: r.year || "", url: r.url, todo: r.todo });
+  });
+  fill("release-list", releases.length ? releases : [el("li", {}, [emptyNote("Add releases to `music.releases` in data.js.")])]);
 
   // --- people ----------------------------------------------------------
   var people = (A.people || []).map(function (p) {
@@ -293,6 +321,31 @@
       el("pre", {}, [el("code", { text: '{ src: "media/flyer.jpg", caption: "Show flyer", year: "2018" }' })])
     ])]);
   }
+
+  // --- logos ---------------------------------------------------------
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var logos = (A.logos || []).map(function (l) {
+    var art;
+    if (l.src) {
+      art = el("img", { src: l.src, alt: (l.name || "") + " logo", loading: "lazy" });
+    } else if (l.symbol) {
+      art = document.createElementNS(SVGNS, "svg");
+      art.setAttribute("class", "logo__svg");
+      art.setAttribute("role", "img");
+      art.setAttribute("aria-label", (l.name || "") + " logo");
+      var use = document.createElementNS(SVGNS, "use");
+      use.setAttribute("href", "#" + l.symbol);
+      art.appendChild(use);
+    } else {
+      art = el("span", { class: "logo__empty", "aria-hidden": "true", text: "+" });
+    }
+    return el("li", { class: "logo" + (isTodo(l) ? " is-todo" : "") }, [
+      el("div", { class: "logo__art" }, [art]),
+      el("h3", { class: "logo__name" }, [l.name || "Logo", isTodo(l) ? todoTag() : null]),
+      l.note ? el("p", { class: "logo__note", text: l.note }) : null
+    ]);
+  });
+  fill("logo-list", logos.length ? logos : [el("li", {}, [emptyNote("Add logos to `logos` in data.js.")])]);
 
   // --- links -----------------------------------------------------------
   var links = (A.links || []).map(function (l) {

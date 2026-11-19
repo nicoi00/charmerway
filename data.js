@@ -7,7 +7,7 @@ window.ARCHIVE = {
   name: "CharmerWay",
   years: "2017–2022",
   place: "Baltimore, Maryland",
-  tagline: "An art collective from Baltimore, 2017–2022.",
+  tagline: "An artist collective from Baltimore, 2017–2022.",
 
   // What CharmerWay is today. Items with `copy: true` get a copy button;
   // items with a `url` become links. `status: "minecraft"` shows live server
@@ -34,25 +34,36 @@ window.ARCHIVE = {
   },
 
   about: [
-    "CharmerWay started in 2017, when Nico and Tyler were in a high school televideo class. They screen-printed custom shirts under the Charmers name and recorded video skits.",
-    "It grew into a creative collective and company: design and creative direction, talent management, marketing, a podcast, and a record imprint, CStar Records. CharmerWay was based out of a studio at School 33 Art Center and was openly shaped by Black culture.",
-    "This site preserves the group’s projects, people and moments from 2017 to 2022."
+    "CharmerWay was an artist collective from Baltimore, Maryland. It ran from 2017, the founders’ senior year of high school, to 2022, their senior year of college. Over those five years the same group of friends made clothing, two podcasts, music, and competitive gaming teams.",
+    "It began when Nico and Tyler were in a high school televideo class. They screen-printed custom shirts under the Charmers name and recorded video skits. The first podcast, Charmers Cramped Closet Podcast, started in high school too.",
+    "In college the collective grew. It launched CStar Presents, an interview series and its second podcast; CStar Sound, its music arm; and CStar eSports, its competitive gaming organization. It also did design and creative direction, talent management and marketing, and was based out of a studio at School 33 Art Center. CharmerWay was openly shaped by Black culture.",
+    "This site is the full archive of CharmerWay: the story, music, episodes, photos and logos from 2017 to 2022."
   ],
 
   timeline: [
-    { year: "2017", title: "Charmers begins", text: "Nico and Tyler start screen-printing custom shirts and recording skits in a high school televideo class." },
-    { year: "2019", title: "CStar Presents launches", text: "Episode 1 of the podcast, with Hasan Ghaziel Bey, is released in March." },
+    { year: "2017", title: "Charmers begins", text: "In their senior year of high school, Nico and Tyler start screen-printing custom shirts and recording skits in a televideo class." },
+    { year: "2019", title: "CStar Presents launches", text: "Episode 1 of the interview series, with Hasan Ghaziel Bey, is released in March." },
     { year: "2020", title: "A public statement", text: "The charmerway.com homepage declares the group’s support for the Black Lives Matter movement and sends condolences to George Floyd’s family." },
     { year: "2021", title: "ABCs of Activism", text: "Episode 14 of CStar Presents, with Jason Russell, is released in February." },
-    { year: "2022", title: "Closing chapter", text: "CharmerWay wraps up its active years.", todo: true }
+    { year: "2022", title: "Closing chapter", text: "CharmerWay wraps up in the founders’ senior year of college, five years after it began." }
   ],
 
+  // `url` adds a "Visit" link; `todo: true` marks a placeholder.
   projects: [
-    { name: "Charmers", kind: "Apparel", years: "2017–", text: "Custom screen-printed shirts, CharmerWay’s first project, later sold through the Charmers Shop." },
+    { name: "Charmers", kind: "Clothing line", years: "2017–", text: "CharmerWay’s clothing line and first project: custom screen-printed shirts, later sold through the Charmers Shop." },
+    { name: "Charmers Cramped Closet Podcast", kind: "Podcast", years: "High school", text: "The podcast the group started in high school, the first of CharmerWay’s two shows." },
+    { name: "CStar Presents", kind: "Interview series", years: "2019–2021", text: "The interview series started in college, CharmerWay’s second podcast: long-form conversations with Baltimore artists, activists and entrepreneurs. Released on YouTube, Spotify and Apple Podcasts." },
+    { name: "CStar Sound", kind: "Music", years: "", text: "The music arm of the collective, with artists CStar Pluto, CStar Byrd, RosesForKam and CStar Waveman. The 2020 charmerway.com site listed it as CStar Records." },
+    { name: "CStar eSports", kind: "Competitive gaming", years: "", text: "CharmerWay’s competitive gaming organization, with teams in Rocket League and Call of Duty. It later became Baltimore Clippers eSports." },
+    { name: "Baltimore Clippers eSports", kind: "Competitive gaming", years: "", text: "CStar eSports’ next chapter: an effort to revive the branding of the Baltimore Clippers, the city’s old hockey team, as an esports organization." },
     { name: "Televideo skits", kind: "Video", years: "2017–", text: "Comedy and video skits made in the high school televideo class where it all began." },
-    { name: "CStar Presents", kind: "Podcast", years: "2019–2021", text: "Long-form conversations with Baltimore artists, activists and entrepreneurs. Released on YouTube, Spotify and Apple Podcasts." },
-    { name: "CStar Records", kind: "Label & management", years: "", text: "CharmerWay’s music imprint and artist roster." },
     { name: "Moodboard", kind: "Blog", years: "", text: "The collective’s blog and visual reference board." }
+  ],
+
+  // Charmers Cramped Closet Podcast episodes (from the CharmerWay YouTube channel).
+  closetEpisodes: [
+    { no: 1, guest: "", title: "Charmers Cramped Closet Podcast Ep 1", date: "", url: "https://www.youtube.com/watch?v=zEUaBc0l-1E" },
+    { no: 2, guest: "", title: "Charmers Cramped Closet Podcast Ep 2", date: "", url: "https://www.youtube.com/watch?v=H4P3Xa0WzVQ" }
   ],
 
   // Episode numbers left null where they aren't confirmed yet.
@@ -81,14 +92,39 @@ window.ARCHIVE = {
     { no: 24, guest: "Logan Spires", title: "", date: "", url: "https://www.youtube.com/watch?v=Xb-P64SWKtE" }
   ],
 
+  // CStar Sound, the music arm. Add a `url` to link an artist; list releases
+  // as { title, artist, year, url } in `releases`.
+  music: {
+    artists: [
+      { name: "CStar Pluto" },
+      { name: "CStar Byrd" },
+      { name: "RosesForKam" },
+      { name: "CStar Waveman" }
+    ],
+    releases: [
+      { title: "Songs and releases", artist: "CStar Sound artists", todo: true }
+    ]
+  },
+
   people: [
     { name: "Nico", role: "Co-founder" },
     { name: "Tyler", role: "Co-founder" },
-    { name: "Add members", role: "Artists, collaborators, CStar Records roster", todo: true }
+    { name: "Add members", role: "Artists, collaborators, CStar Sound and CStar eSports rosters", todo: true }
   ],
 
   // Add images to ./media/ and list them here: { src: "media/file.jpg", caption: "…", year: "2018" }
   gallery: [],
+
+  // Logos. `symbol: "mark"` uses the redrawn C mark built into the page;
+  // for original files put them in ./media/ and use { name, src, note }.
+  logos: [
+    { name: "CharmerWay", symbol: "mark", note: "C mark, redrawn from the YouTube and X profile images" },
+    { name: "Charmers", note: "Original logo file", todo: true },
+    { name: "CStar", note: "Original logo file", todo: true },
+    { name: "CStar Sound", note: "Original logo file", todo: true },
+    { name: "CStar eSports", note: "Original logo file", todo: true },
+    { name: "Baltimore Clippers eSports", note: "Original logo file", todo: true }
+  ],
 
   links: [
     { label: "YouTube", url: "https://www.youtube.com/c/CharmerWay" },

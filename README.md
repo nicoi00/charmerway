@@ -1,6 +1,6 @@
 # CharmerWay Archive
 
-The archive site for **CharmerWay**, an art collective from Baltimore, Maryland (2017–2022).
+The archive site for **CharmerWay**, an artist collective from Baltimore, Maryland (2017–2022).
 
 It's a plain static site with no build step and nothing to install:
 
@@ -35,10 +35,20 @@ lists and reload the page.
   - `no: null` shows "—" until the episode number is confirmed.
   - With a `url`, the episode becomes a link (▶).
   - With a `title`, it's the headline and the guest is shown as "with …".
+- `closetEpisodes` (Charmers Cramped Closet Podcast): same fields as `episodes`.
+- `music` (CStar Sound): `artists` as `{ name, role?, photo?, url? }` and
+  `releases` as `{ title, artist, year, url? }`.
 - `people`: `{ name, role, photo? }`; `photo` is a path like `"media/nico.jpg"`.
 - `gallery`: `{ src, caption, year, alt? }`
+- `logos`: `{ name, src, note }` with `src` a file in `media/`, or
+  `symbol: "mark"` for the C mark drawn into the page.
 - `links`: `{ label, url }`. A link with an empty `url` and `todo: true` shows
   as a placeholder until you fill in the address.
+
+The section ledes for both podcasts and CStar Sound come from the matching
+entry in `projects`, so edit the text there.
+
+Spelling: write **CharmerWay** (capital W) and **CStar** (capital S).
 
 Any entry with `todo: true` shows up as a dashed placeholder with a yellow
 **To add** tag. Remove `todo: true` once the entry is filled in with real
