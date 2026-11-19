@@ -119,9 +119,10 @@ window.ARCHIVE = {
   // for original files put them in ./media/ and use { name, src, note }.
   logos: [
     { name: "CharmerWay", symbol: "mark", note: "C mark, redrawn from the YouTube and X profile images" },
+    { name: "CStar Records", src: "media/cstar-records-logo-red.jpg", note: "Logo of the music arm (CStar Sound), red version" },
+    { name: "CStar Records", src: "media/cstar-records-logo-black.jpg", note: "Logo of the music arm (CStar Sound), black and white version" },
     { name: "Charmers", note: "Original logo file", todo: true },
     { name: "CStar", note: "Original logo file", todo: true },
-    { name: "CStar Sound", note: "Original logo file", todo: true },
     { name: "CStar eSports", note: "Original logo file", todo: true },
     { name: "Baltimore Clippers eSports", note: "Original logo file", todo: true }
   ],
