@@ -108,6 +108,9 @@ window.ARCHIVE = {
   people: [
     { name: "Nico", role: "Co-founder" },
     { name: "Tyler", role: "Co-founder" },
+    { name: "Pluto", role: "Co-founder" },
+    { name: "Abbu", role: "Co-founder" },
+    { name: "Mahmud", role: "Co-founder" },
     { name: "Add members", role: "Artists, collaborators, CStar Sound and CStar eSports rosters", todo: true }
   ],
 
